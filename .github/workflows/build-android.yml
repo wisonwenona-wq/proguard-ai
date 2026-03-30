@@ -22,15 +22,15 @@ jobs:
         run: |
           cd frontend
           npm run build
-      - name: Capacitor Sync (这是最关键的一步补丁)
+      - name: Capacitor Sync
         run: |
           cd frontend
           npx cap sync android
-      - name: Setup Java
+      - name: Setup Java (升级到 21)
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '21'
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
       - name: Build Android APK
