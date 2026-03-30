@@ -16,6 +16,7 @@ const openai = new OpenAI({
   baseURL: "https://api.moonshot.cn/v1",
 });
 
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3001;
 
@@ -494,4 +495,13 @@ app.post('/api/chat', async (req, res) => {
   res.json(response);
 });
 
-app.listen(port, () => console.log(`Backend server running at http://localhost:${port}`));
+// Serve frontend static files
+const frontendDist = path.join(__dirname, 'frontend', 'dist');
+if (require('fs').existsSync(frontendDist)) {
+  app.use(express.static(frontendDist));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(frontendDist, 'index.html'));
+  });
+}
+
+app.listen(port, '0.0.0.0', () => console.log(`Backend server running at http://localhost:${port}`));

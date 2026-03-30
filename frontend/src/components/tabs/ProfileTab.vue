@@ -66,7 +66,8 @@ const logout = () => {
 const handleAuth = async () => {
     authError.value = '';
     try {
-        const url = authMode.value === 'login' ? '/api/login' : '/api/register';
+        const base = import.meta.env.VITE_API_BASE_URL || '';
+        const url = authMode.value === 'login' ? `${base}/api/login` : `${base}/api/register`;
         const payload = { 
             phone: authPhone.value, 
             password: authPassword.value,
