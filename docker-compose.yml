@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: temp-hn-xs
+    ports:
+      - "5120:3001"
+    restart: always
+    volumes:
+      - ./backend/data:/usr/src/app/data
+
+  frontend:
+    build: ./frontend
+    container_name: proguard-frontend
+    ports:
+      - "2544:80"
+    depends_on:
+      - backend
+    restart: always
