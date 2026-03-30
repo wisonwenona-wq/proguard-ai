@@ -1,0 +1,16 @@
+allprojects {
+    // 拦截所有的“厨师和工具”下载 (buildscript)
+    buildscript {
+        repositories {
+            maven { url 'https://maven.aliyun.com/repository/google' }
+            maven { url 'https://maven.aliyun.com/repository/public' }
+            maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        }
+    }
+    // 拦截所有的“原材料”下载 (repositories)
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+    }
+}
