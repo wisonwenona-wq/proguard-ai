@@ -1,4 +1,21 @@
+# 基础
 node_modules/
 dist/
-.android/
-.gradle/
+.DS_Store
+.idea/
+.vscode/
+
+# 环境变量 (保护您的 API Key)
+.env
+.env.local
+.env.*.local
+
+# Android & Capacitor 缓存
+android/app/build
+android/.gradle
+android/captiacitor-cordova-android-plugins
+
+# 日志
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
