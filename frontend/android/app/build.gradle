@@ -28,6 +28,16 @@ android {
             exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
         }
     }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // 关键：给 Debug 版本增加更多稳定性权限
+            debuggable true
+        }
+    }
 }
 
 repositories {
